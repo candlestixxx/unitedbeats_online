@@ -6,9 +6,10 @@ home_path = os.path.join(os.path.dirname(__file__), 'homepage.html')
 with open(home_path, 'r', encoding='utf-8') as f:
     content = f.read()
 
-# 1. Update Host and Repos
+# 1. Update Host, Repos, and Company Name
 content = content.replace('lumbros.me', 'unitedbeats.online')
 content = content.replace('Lumbros.me', 'UnitedBeats.Online')
+content = content.replace('LUMBROS.ME', 'UNITEDBEATS.ONLINE')
 content = content.replace('candlestixxx/lumbros.me', 'candlestixxx/unitedbeats_online')
 content = content.replace('candlestixxx@lumbros-node:', 'candlestixxx@unitedbeats-node:')
 content = content.replace('id="lumbros-uplink-form"', 'id="ub-uplink-form"')
@@ -68,13 +69,14 @@ crt_logo_html = '''
     </div>
 '''
 
-# Insert CRT logo right before the ASCII hero header if not already present
+# Insert CRT logo right before the ASCII hero header
 if 'ub-crt-deck-container' not in content:
-    content = content.replace(
-        '<header class="ascii-hero">',
-        crt_logo_html + '\n  <header class="ascii-hero">'
-    )
-    print("Inserted CRT Logo and Pillar Mission Deck.")
+    match = re.search(r'(<header class="ascii-hero[^>]*>)', content)
+    if match:
+        content = content[:match.start()] + crt_logo_html + '\n  ' + content[match.start():]
+        print("Inserted CRT Logo and Pillar Mission Deck before header tag.")
+    else:
+        print("WARNING: Could not find <header class=\"ascii-hero...")
 else:
     print("CRT logo deck already present.")
 
@@ -244,7 +246,7 @@ crt_css = '''
     }
 '''
 
-if 'ub-crt-deck-container' in content and '.ub-crt-deck-container' not in content:
+if '.ub-crt-deck-container' not in content:
     content = content.replace('</style>', crt_css + '\n    </style>')
     print("Injected CRT Deck CSS.")
 
@@ -260,35 +262,3 @@ with open(home_path, 'w', encoding='utf-8') as f:
     f.write(content)
 
 print("✔ homepage.html successfully updated and branded!")
-
-# Regenerate subpages (public.html, private.html, posts.html)
-print("===> [2/4] Regenerating subpages (public, private, posts)...")
-import subprocess
-gen_script = os.path.join(os.path.dirname(__file__), 'generate_subpages.py')
-
-# Update generate_subpages.py to reference UNITEDBEATS.ONLINE
-with open(gen_script, 'r', encoding='utf-8') as f:
-    sub_code = f.read()
-
-sub_code = sub_code.replace('NODE: LUMBROS.ME', 'NODE: UNITEDBEATS.ONLINE')
-with open(gen_script, 'w', encoding='utf-8') as f:
-    f.write(sub_code)
-
-res = subprocess.run(['python', gen_script], capture_output=True, text=True)
-print(res.stdout)
-if res.stderr:
-    print(res.stderr)
-
-print("===> [3/4] Checking deploy_page.py for updated database export and labels...")
-deploy_script = os.path.join(os.path.dirname(__file__), 'deploy_page.py')
-with open(deploy_script, 'r', encoding='utf-8') as f:
-    d_code = f.read()
-
-d_code = d_code.replace('lumbros.me', 'unitedbeats.online')
-d_code = d_code.replace('Lumbros.me', 'UnitedBeats.Online')
-with open(deploy_script, 'w', encoding='utf-8') as f:
-    f.write(d_code)
-
-print("✔ deploy_page.py updated.")
-
-print("===> [4/4] Branding complete!")

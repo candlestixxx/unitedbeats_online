@@ -8761,7 +8761,171 @@
        END SPECTRUM MONOPOLY STYLES
        ========================================================================= */
 
-  </style>
+  
+    /* =========================================================================
+       AUTHENTIC CRT MONITOR LOGO & PILLAR BRANDING STYLES
+       ========================================================================= */
+    .ub-crt-deck-container {
+      max-width: 1060px;
+      margin: 24px auto 35px;
+      padding: 0 14px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .ub-crt-monitor-chassis {
+      background: linear-gradient(145deg, #121915, #080c09);
+      border: 3px solid #00ff6640;
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 255, 102, 0.22);
+      position: relative;
+    }
+
+    .ub-crt-bezel-rim {
+      border: 2px solid #00ff6660;
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: radial-gradient(ellipse at 50% 50%, #05140a 0%, #010603 100%);
+      position: relative;
+    }
+
+    .ub-crt-screws {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #2a3a30;
+      border: 1px solid #00ff6680;
+      border-radius: 50%;
+    }
+    .screw-tl { top: 6px; left: 6px; }
+    .screw-tr { top: 6px; right: 6px; }
+    .screw-bl { bottom: 6px; left: 6px; }
+    .screw-br { bottom: 6px; right: 6px; }
+
+    .ub-crt-hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(0, 255, 102, 0.25);
+      font-family: 'Courier New', monospace;
+      font-size: 0.76rem;
+      letter-spacing: 1.5px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .crt-dot-pulse {
+      color: #00ff66;
+      animation: crtPulse 1.4s infinite;
+      margin-right: 6px;
+    }
+
+    @keyframes crtPulse {
+      0%, 100% { opacity: 1; transform: scale(1); text-shadow: 0 0 10px #00ff66; }
+      50% { opacity: 0.4; transform: scale(0.9); text-shadow: none; }
+    }
+
+    .crt-tag { color: #8ce4a7; font-weight: 700; }
+    .crt-callout { color: #00ff66; font-weight: 900; letter-spacing: 2px; }
+    .crt-tag-cyan { color: #00e5ff; font-weight: 700; }
+
+    .ub-crt-screen-viewport {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #00ff6650;
+      box-shadow: inset 0 0 40px rgba(0, 255, 102, 0.35);
+      background: #000000;
+    }
+
+    .ub-crt-master-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: contrast(1.08) brightness(1.04);
+      transition: filter 0.3s ease;
+    }
+
+    .ub-crt-scanlines {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+      background-size: 100% 4px;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.7;
+    }
+
+    .ub-crt-phosphor-glow {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      box-shadow: inset 0 0 30px rgba(0, 255, 102, 0.4);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .ub-crt-hud-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      margin-top: 10px;
+      border-top: 1px solid rgba(0, 255, 102, 0.25);
+      font-family: 'Courier New', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 1.2px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .ub-crt-foot-item .f-lbl { color: #8ce4a7; margin-right: 5px; }
+    .ub-crt-foot-item .f-val { color: #00ff66; font-weight: 800; }
+
+    /* Mission & Community Love Callout */
+    .ub-pillar-mission-card {
+      margin-top: 20px;
+      background: linear-gradient(135deg, rgba(0, 40, 18, 0.82), rgba(3, 15, 8, 0.94));
+      border: 2px solid #00ff66;
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 255, 102, 0.18);
+    }
+
+    .ub-mission-spark {
+      font-size: 2rem;
+      color: #00ff66;
+      text-shadow: 0 0 15px #00ff66;
+      animation: crtPulse 2s infinite;
+    }
+
+    .ub-mission-body {
+      flex: 1;
+    }
+
+    .ub-mission-headline {
+      margin: 0 0 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.05rem;
+      letter-spacing: 2px;
+      color: #00ff66;
+      text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+      font-weight: 900;
+    }
+
+    .ub-mission-copy {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #d1fae5;
+    }
+
+    </style>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {

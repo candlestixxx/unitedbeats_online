@@ -5,9 +5,8 @@ print("===> Building deploy/games.html from original Sections 9 & 9.5...")
 
 # We can read original Sections 9 and 9.5
 # In the previous git commit b8fdb77, homepage.html contained sections 9 and 9.5
-# We can read it directly from git show HEAD:deploy/homepage.html!
 import subprocess
-res = subprocess.run(['git', 'show', 'HEAD:deploy/homepage.html'], capture_output=True, text=True, encoding='utf-8')
+res = subprocess.run(['git', 'show', 'b8fdb77:deploy/homepage.html'], capture_output=True, text=True, encoding='utf-8')
 old_home = res.stdout
 
 s_9_marker = old_home.find('<section id="shadertoy-tribute"')

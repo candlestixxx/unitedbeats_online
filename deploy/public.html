@@ -9897,6 +9897,65 @@
       border: 1px solid rgba(0, 229, 255, 0.5);
     }
 
+    
+    /* =========================================================================
+       WHITE LIGHTNING FLASH: JUST THE WHITE OUTLINE INSIDE MAIN UNITED BEATS LOGO
+       Cadence: Fires a sharp double-arc white lightning flash every 3.5 seconds
+       ========================================================================= */
+    .ub-crt-screen-viewport {
+      position: relative;
+    }
+
+    .ub-crt-white-lightning-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0;
+      mix-blend-mode: screen;
+      animation: logo-white-lightning-flash 3.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+
+    @keyframes logo-white-lightning-flash {
+      0%, 82% {
+        opacity: 0;
+        filter: drop-shadow(0 0 0px #ffffff);
+      }
+      84% { /* SHARP FIRST LIGHTNING CRACK */
+        opacity: 0.95;
+        filter: drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 25px #ffffff) brightness(2.6);
+      }
+      85.2% { /* RAPID MICRO-REBOUND FLICKER */
+        opacity: 0.25;
+        filter: drop-shadow(0 0 4px #ffffff);
+      }
+      86.8% { /* SECOND INTENSE WHITE LIGHTNING FLASH */
+        opacity: 1;
+        filter: drop-shadow(0 0 18px #ffffff) drop-shadow(0 0 40px #ffffff) drop-shadow(0 0 70px rgba(255, 255, 255, 0.9)) brightness(3.2);
+      }
+      88.5% { /* ELECTRIC ARC DISPERSION */
+        opacity: 0.55;
+        filter: drop-shadow(0 0 8px #ffffff);
+      }
+      90.5% {
+        opacity: 0.15;
+        filter: drop-shadow(0 0 3px #ffffff);
+      }
+      92%, 100% {
+        opacity: 0;
+        filter: drop-shadow(0 0 0px #ffffff);
+      }
+    }
+
+    /* Disable container box border pulses so ONLY the logo outline flashes */
+    .divine-pulse-outline,
+    .divine-pulse-inline {
+      display: none !important;
+    }
+
     </style>
 
   <script>

@@ -609,7 +609,6 @@
         <!-- Psychological Archetypes: 8-Point Compass Star & Wave Carrier -->
         <polygon class="geo-archetype geo-compass-vec" points="600,100 615,165 680,180 615,195 600,260 585,195 520,180 585,165"></polygon>
         <circle class="geo-archetype" cx="600" cy="180" r="30"></circle>
-    
       </svg>
       <div class="matrix-grid-pattern"></div>
     </div>
@@ -621,9 +620,8 @@
     </h2>
 
     <div class="uplink-grid">
-      <!-- Left Column: Direct Contact & Creator Persona Showcase -->
-      <div class="uplink-profile-col">
-        
+      <!-- Left Column: Lumbros Kourlos Persona & Repositories -->
+      <div class="uplink-profile-col uplink-col-left">
         <!-- Live Green Status Radar Beacon -->
         <div class="status-beacon-box">
           <div class="radar-ping-ring"></div>
@@ -850,8 +848,10 @@
             </div>
           </div>
         </div>
+      </div>
 
-      
+      <!-- Right Column: Robert Pelloni Repositories & Persona -->
+      <div class="uplink-profile-col uplink-col-right">
         <!-- =========================================================================
              DYNAMIC SPECTRUM SLIDER SEPARATOR: LUM & BOB SYNERGISTIC REPOSITORY BRIDGE
              Line and circle that slides left to right reflecting the color spectrum
@@ -1050,7 +1050,7 @@
 
         <!-- Creator Persona Card: Robert Matthew Pelloni (Under Robert's GitHub Section) -->
         <div class="creator-persona-card bob-persona-card">
-          <div class="creator-title-badge">LEAD SOFTWARE ARCHITECT // CO-FOUNDER</div>
+          <div class="creator-title-badge">COMMAND ARCHITECT // MULTIVERSE CO-FOUNDER</div>
           <h3 class="creator-name">ROBERT MATTHEW PELLONI</h3>
           <div class="creator-roles">
             <span>◈ FULL STACK DEVELOPER</span>
@@ -1084,8 +1084,8 @@
         </div>
       </div>
 
-      <!-- Right Column: Interactive Quantum Uplink Form -->
-      <div class="uplink-form-col">
+      <!-- Full-Width Bottom Row: Quantum Uplink Inquiry Form -->
+      <div class="uplink-form-col uplink-form-full-width">
         <div class="form-hud-container">
           <div class="form-hud-header">
             <span class="form-hud-title">⚡ TRANSMIT DIRECT INQUIRY // DUAL SYNC RELAY</span>
@@ -4221,6 +4221,10 @@
     /* =========================================================================
        Section 2.5: Direct Uplink & Networking Hub
        ========================================================================= */
+        .uplink-form-full-width {
+      grid-column: 1 / -1;
+      margin-top: 15px;
+    }
     .uplink-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));

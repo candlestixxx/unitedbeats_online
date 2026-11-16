@@ -7,442 +7,112 @@
        OPTICAL VISION SPECTRUM & ACUITY CALIBRATION DECK (20/200 -> 20/20 -> 20/10)
        ARTISTIC DESIGN, IDEAS & CREATIVITY — ALL REPRESENTED THROUGH MATHEMATICS & GOD
        ========================================================================= -->
-  <div id="vision-calibration-deck" class="vision-calibration-deck spectrum-layer" data-layer-seq="0" arcade-hud-active">
-    <div class="vision-deck-frame">
-      <div class="vision-deck-scanlines"></div>
-      <div class="arcade-glow-halo"></div>
+  <!-- =========================================================================
+       EXPANDABLE SPECTRUM EXPERIENCE MENU (LIGHT / DARK OPTICAL POLARITY)
+       Clean, simple, and intuitive expandable controller modeled after the MY LIFE SOUNDS pill
+       ========================================================================= -->
+  <section id="spectrum-experience-deck" class="spectrum-experience-deck" aria-label="Optical Spectrum Controller">
+    <!-- Mini Dock Pill Bar (Visible by default) -->
+    <div class="spectrum-hero-pill" id="spectrum-hero-toggle" title="Click to Expand/Collapse Spectrum Experience Menu">
+      <div class="spectrum-pill-glyph">
+        <span class="glyph-orb" id="hero-glyph-orb">☾</span>
+      </div>
+      <div class="spectrum-pill-headings">
+        <span class="spectrum-kicker">CHOOSE YOUR SPECTRUM EXPERIENCE</span>
+        <span class="spectrum-current" id="hero-current-readout">CURRENT: DARK SPECTRUM [OBSIDIAN CYBER]</span>
+      </div>
+      
+      <!-- Direct 1-Click Quick Toggles on the pill -->
+      <div class="spectrum-pill-quick-actions" onclick="event.stopPropagation()">
+        <button type="button" class="spec-quick-btn mode-dark active" id="hero-btn-dark" data-theme="dark" title="Switch to Dark Spectrum">
+          <span class="spec-btn-icon">☾</span> <span class="spec-btn-txt">DARK</span>
+        </button>
+        <button type="button" class="spec-quick-btn mode-light" id="hero-btn-light" data-theme="light" title="Switch to Light Spectrum">
+          <span class="spec-btn-icon">☼</span> <span class="spec-btn-txt">LIGHT</span>
+        </button>
+      </div>
 
-      <!-- Top Status & Directive Bar with Cycling Spectrum & Divine Creative Intent -->
-      <div class="vision-deck-topbar">
-        <div class="vision-badge-row">
-          <div class="vision-badge">
-            <span class="vision-pulse-dot"></span>
-            <span class="vision-badge-code">OPTICAL_HUD v4.2 // SPECTRUM ENGINE</span>
+      <span class="spectrum-hero-arrow" id="hero-arrow-indicator" title="Toggle Expansion">▼</span>
+    </div>
+
+    <!-- Expanded Drawer (Smoothly expands down when clicked) -->
+    <div class="spectrum-hero-expanded" id="spectrum-hero-expanded" style="display: none;">
+      <div class="drawer-top-bar">
+        <div class="drawer-status-badge">
+          <span class="status-pulse-dot"></span>
+          <span>OPTICAL HARMONICS // DUAL SPECTRUM CONTROLLER</span>
+        </div>
+        <button type="button" class="drawer-close-btn" id="hero-drawer-close" title="Collapse Menu">▲ COLLAPSE</button>
+      </div>
+
+      <div class="drawer-hero-text">
+        <h3 class="drawer-title">⚡ ⟦ CHOOSE YOUR SPECTRUM EXPERIENCE ⟧</h3>
+        <p class="drawer-subtitle">
+          Toggle between <strong>Dark Spectrum</strong> and <strong>Light Spectrum</strong> with instant adaptation across all visual layers, contrast ratios, and typography.
+        </p>
+      </div>
+
+      <div class="spectrum-choice-cards">
+        <!-- Dark Spectrum Choice Card -->
+        <div class="spec-card card-dark active" id="spec-card-dark" data-theme="dark">
+          <div class="spec-card-glow"></div>
+          <div class="spec-card-head">
+            <span class="spec-card-icon">☾</span>
+            <div class="spec-card-meta">
+              <h4 class="spec-card-name">DARK SPECTRUM</h4>
+              <span class="spec-card-sub">Cyber Obsidian &amp; Phosphor Green</span>
+            </div>
+            <span class="spec-active-badge" id="badge-dark-active">ACTIVE</span>
           </div>
-          <div class="arcade-status-capsule">
-            <span class="capsule-pip"></span>
-            <span class="capsule-text">NEURAL_OPTICS: ONLINE</span>
+          <p class="spec-card-copy">
+            Deep obsidian background with glowing neon green laser accents. Designed for deep engineering focus, reducing retinal strain, and full cyberpunk ambiance in low-light environments.
+          </p>
+          <div class="spec-card-stats">
+            <span class="stat-pill">WEBER CONTRAST: 9.2:1</span>
+            <span class="stat-pill">BACKGROUND: #020403</span>
+            <span class="stat-pill">GLOW: #00FF66</span>
           </div>
+          <button type="button" class="spec-card-btn" id="card-btn-dark" data-theme="dark">
+            ✓ SELECTED (DARK)
+          </button>
         </div>
 
-        <!-- Large Catchy Headline with 7-Pattern Circulating Spectrum -->
-        <div class="vision-headline-wrap">
-          <h2 class="vision-headline-hero">
-            <span class="founder-name-chroma vision-hero-chroma">⟦ CHOOSE YOUR SPECTRUM EXPERIENCE ⟧</span>
-          </h2>
-          <div class="vision-divine-callout">
-            <span class="manifesto-zap">⚡</span>
-            <span class="manifesto-core">CONTROL THE OPTICAL SPECTRUM OF SIGHT // ARTISTIC DESIGN, IDEAS &amp; CREATIVITY — ALL REPRESENTED THROUGH MATHEMATICS &amp; GOD</span>
-            <span class="manifesto-zap">⚡</span>
+        <!-- Light Spectrum Choice Card -->
+        <div class="spec-card card-light" id="spec-card-light" data-theme="light">
+          <div class="spec-card-glow"></div>
+          <div class="spec-card-head">
+            <span class="spec-card-icon">☼</span>
+            <div class="spec-card-meta">
+              <h4 class="spec-card-name">LIGHT SPECTRUM</h4>
+              <span class="spec-card-sub">Reverse Optical Alabaster &amp; Emerald</span>
+            </div>
+            <span class="spec-active-badge" id="badge-light-active" style="display: none;">ACTIVE</span>
           </div>
-        </div>
-
-        <!-- Real-time Mathematical Telemetry -->
-        <div class="vision-telemetry-hud" id="vision-live-telemetry">
-          <div class="telem-item">
-            <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-            <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-            <div class="telem-inner"><span class="telem-k">OPTICAL_PRESCRIPTION:</span> <span class="val-acuity glow-val">20/20</span></div>
+          <p class="spec-card-copy">
+            Crisp optical alabaster canvas with deep emerald typography. Designed for bright rooms, daylight work sessions, long-form document readability, and glare-free comfort.
+          </p>
+          <div class="spec-card-stats">
+            <span class="stat-pill">WEBER CONTRAST: 12.4:1</span>
+            <span class="stat-pill">BACKGROUND: #EDF3EF</span>
+            <span class="stat-pill">ACCENT: #007A30</span>
           </div>
-          <div class="telem-item">
-            <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-            <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-            <div class="telem-inner"><span class="telem-k">GLASSES_PRESCRIPTION:</span> <span class="val-diopter glow-val">0.00D (PLANO)</span></div>
-          </div>
-          <div class="telem-item">
-            <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-            <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-            <div class="telem-inner"><span class="telem-k">SPECTRUM_POLARITY:</span> <span class="val-polarity glow-val">DARK_OBSIDIAN</span></div>
-          </div>
-          <div class="telem-item">
-            <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-            <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-            <div class="telem-inner"><span class="telem-k">WEBER_CONTRAST:</span> <span class="val-contrast glow-val">9.2:1</span></div>
-          </div>
-          <div class="telem-item">
-            <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-            <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-            <div class="telem-inner"><span class="telem-k">CONTRAST_CALIBRATION:</span> <span class="val-calib glow-val">100% NOMINAL</span></div>
-          </div>
-          <div class="telem-item">
-            <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-            <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-            <div class="telem-inner"><span class="telem-k">RETINAL_POWER:</span> <span class="val-power glow-val">HARMONIC EQUILIBRIUM</span></div>
-          </div>
-          <div class="telem-item telem-archetype-item">
-            <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-            <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-            <div class="telem-inner"><span class="telem-k">PSYCH_ARCHETYPE:</span> <span class="val-archetype glow-val">♥ HARMONIC HEART [550nm] // TRUST &amp; EQUILIBRIUM</span></div>
-          </div>
+          <button type="button" class="spec-card-btn" id="card-btn-light" data-theme="light">
+            ACTIVATE LIGHT SPECTRUM
+          </button>
         </div>
       </div>
 
-      <!-- Controls Grid: Acuity Gauge + Polarity Toggle -->
-      <div class="vision-deck-controls">
-        
-        <!-- Module 1: 3-Stage Mathematical Acuity Gauge with Interactive Drag Circle -->
-        <div class="vision-module vision-acuity-module">
-          <div class="module-header-game">
-            <span class="mod-icon-laser">◈</span>
-            <span class="mod-title">VISUAL ACUITY GAUGE &amp; SIGHT PRESCRIPTION CALIBRATOR</span>
-            <span class="mod-arcade-tag">TACTILE DIAL</span>
-          </div>
-
-          <!-- 3 Quick Focus Preset Buttons -->
-          <div class="acuity-gauge-track">
-            <button type="button" class="acuity-node-btn" data-acuity="20-200" data-gauge="0" title="High-Contrast Macro Mode for Low Vision / Eye Fatigue / Heavy Glasses (-8.50D to -10.00D)">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="acuity-node-inner">
-                <span class="node-grade">20/200 (-8.50D)</span>
-                <span class="node-name">POOREST VISION / HEAVY GLASSES</span>
-                <span class="node-spec">Max Ultra-Contrast // 3.5px Stroke // Anti-Strain</span>
-              </div>
-            </button>
-
-            <button type="button" class="acuity-node-btn active" data-acuity="20-20" data-gauge="75" title="Standard Harmonic Spectrum for 20/20 Corrected Vision (0.00D Plano)">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="acuity-node-inner">
-                <span class="node-grade">20/20 (0.00D)</span>
-                <span class="node-name">BALANCED EQUILIBRIUM</span>
-                <span class="node-spec">Nominal Harmonic Spectrum // Golden Ratio</span>
-              </div>
-            </button>
-
-            <button type="button" class="acuity-node-btn" data-acuity="20-10" data-gauge="100" title="Hyper-Acuity Laser Focus for 20/10 Eagle Vision (+1.00D)">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="acuity-node-inner">
-                <span class="node-grade">20/10 (+1.00D)</span>
-                <span class="node-name">EAGLE HYPER-ACUITY</span>
-                <span class="node-spec">Razor Micro-Vector // 0.85px Sub-Pixel Focus</span>
-              </div>
-            </button>
-          </div>
-
-          <!-- The Continuous Mathematical Gauge Bar with Interactive Drag Circle -->
-          <div class="acuity-interactive-container" id="acuity-interactive-container">
-            <div class="gauge-instruction-bar">
-              <span class="instruction-lead">◄ SLIDE CIRCLE TO CALIBRATE EXACT VISUAL ACUITY &amp; CONTRAST ►</span>
-              <span id="gauge-live-fraction" class="gauge-live-badge">20/20 (0.00D PLANO) // WEBER 9.2:1</span>
-            </div>
-
-            <div class="acuity-rail-track" id="acuity-rail-track" title="Click or Drag anywhere on the rail to adjust sight calibration">
-              <!-- 12-Color Optical Spectrum Background on Rail -->
-              <div class="acuity-rail-spectrum"></div>
-              
-              <!-- Reticle Target Lines -->
-              <div class="rail-grid-ticks">
-                <span class="r-tick" style="left:0%;" title="20/200 (-8.50D)"></span>
-                <span class="r-tick" style="left:15%;" title="20/100 (-5.50D)"></span>
-                <span class="r-tick" style="left:35%;" title="20/70 (-4.00D)"></span>
-                <span class="r-tick" style="left:55%;" title="20/40 (-2.00D)"></span>
-                <span class="r-tick mid" style="left:75%;" title="20/20 (0.00D Plano)"></span>
-                <span class="r-tick" style="left:90%;" title="20/15 (+0.50D)"></span>
-                <span class="r-tick end" style="left:100%;" title="20/10 (+1.00D)"></span>
-              </div>
-
-              <!-- Interactive Drag Thumb (Circle on the Bar) -->
-              <div class="slider-circle-thumb" id="slider-circle-thumb" style="left: 75%;" title="Drag to adjust vision prescription">
-                <div class="circle-laser-halo"></div>
-                <div class="circle-core"></div>
-                <div class="circle-crosshair"></div>
-                <div class="circle-floating-badge" id="circle-floating-badge">20/20 (0.00D)</div>
-              </div>
-
-              <!-- Accessible native range input overlay for seamless drag/touch/keys -->
-              <input type="range" id="acuity-analog-slider" class="acuity-analog-slider" min="0" max="100" value="75" step="1" aria-label="Visual Acuity Range Calibrator">
-            </div>
-
-            <!-- Gauge Scale Ticks -->
-            <div class="gauge-scale-ticks">
-              <span class="tick-link" data-val="0" title="20/200: Poorest Vision / Heavy Glasses Assist (-8.50D)">20/200 (-8.50D)</span>
-              <span class="tick-link" data-val="18" title="20/100: Heavy Prescription (-5.50D)">20/100 (-5.50D)</span>
-              <span class="tick-link" data-val="38" title="20/70: Moderate-Heavy Prescription (-4.00D)">20/70 (-4.00D)</span>
-              <span class="tick-link" data-val="56" title="20/40: Mild Prescription / Driving Standard (-2.00D)">20/40 (-2.00D)</span>
-              <span class="tick-link active" data-val="75" title="20/20: Standard Corrected Vision (0.00D Plano)">20/20 (PLANO)</span>
-              <span class="tick-link" data-val="90" title="20/15: Sharp Focus (+0.50D)">20/15 (+0.50D)</span>
-              <span class="tick-link" data-val="100" title="20/10: Eagle Vision / Hyper-Acuity (+1.00D)">20/10 (+1.00D)</span>
-            </div>
-            <div class="gauge-diopter-subscale">
-              <span>◄ POOREST VISION / HEAVY GLASSES (-10.00D) ──────────── 20/20 PLANO ──────────── EAGLE HYPER-ACUITY (+1.00D) ►</span>
-            </div>
-          </div>
+      <!-- Quick Accessibility Preset Row -->
+      <div class="spec-drawer-footer">
+        <span class="ft-label">ACCESSIBILITY SCALE:</span>
+        <div class="ft-button-group">
+          <button type="button" class="acuity-node-btn" data-acuity="20-200" title="Enlarged text and maximum contrast for low vision">HIGH CONTRAST (20/200)</button>
+          <button type="button" class="acuity-node-btn active" data-acuity="20-20" title="Standard balanced view">BALANCED (20/20)</button>
+          <button type="button" class="acuity-node-btn" data-acuity="20-10" title="Fine micro-focus">RAZOR FOCUS (20/10)</button>
         </div>
-
-        <!-- Module 2: Luminance Spectrum Polarity (Dark Obsidian vs Reverse Light Alabaster) -->
-        <div class="vision-module vision-polarity-module">
-          <div class="module-header-game">
-            <span class="mod-icon-laser">◐</span>
-            <span class="mod-title">SPECTRUM LUMINANCE POLARITY</span>
-            <span class="mod-arcade-tag">DUAL-LUX</span>
-          </div>
-
-          <div class="polarity-toggle-group">
-            <button type="button" class="polarity-btn active" data-theme="dark" title="Dark Spectrum: Deep obsidian background with phosphor neon laser illumination">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="pol-inner" style="position:relative; z-index:3; display:flex; align-items:center; gap:8px;">
-                <span class="pol-icon">☾</span>
-                <div class="pol-info">
-                  <span class="pol-title">DARK SPECTRUM</span>
-                  <span class="pol-desc">Obsidian Phosphor // Cyber Terminal</span>
-                </div>
-              </div>
-            </button>
-
-            <button type="button" class="polarity-btn" data-theme="light" title="Light Spectrum: Eye-soothing reverse optical alabaster contrast with jewel-tone spectrum">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="pol-inner" style="position:relative; z-index:3; display:flex; align-items:center; gap:8px;">
-                <span class="pol-icon">☼</span>
-                <div class="pol-info">
-                  <span class="pol-title">LIGHT SPECTRUM</span>
-                  <span class="pol-desc">Reverse Optical Alabaster // Zero-Glare</span>
-                </div>
-              </div>
-            </button>
-          </div>
-
-          <!-- 12-Color Preview Indicator Ribbon -->
-          <div class="polarity-spectrum-preview">
-            <span class="spectrum-dot dot-1" title="Red 0%"></span>
-            <span class="spectrum-dot dot-2" title="Coral 9%"></span>
-            <span class="spectrum-dot dot-3" title="Amber 18%"></span>
-            <span class="spectrum-dot dot-4" title="Gold 27%"></span>
-            <span class="spectrum-dot dot-5" title="Yellow 36%"></span>
-            <span class="spectrum-dot dot-6" title="Pear 45%"></span>
-            <span class="spectrum-dot dot-7" title="Emerald Green 50% [Center Midpoint]"></span>
-            <span class="spectrum-dot dot-8" title="Teal 55%"></span>
-            <span class="spectrum-dot dot-9" title="Cyan 64%"></span>
-            <span class="spectrum-dot dot-10" title="Blue 73%"></span>
-            <span class="spectrum-dot dot-11" title="Indigo 82%"></span>
-            <span class="spectrum-dot dot-12" title="Magenta 100%"></span>
-          </div>
-          <div class="spectrum-center-label">
-            <span>◄ 12-COLOR SPECTRUM // HARMONIC CENTER: 550nm GREEN ►</span>
-          </div>
-        </div>
-
-        <!-- Module 3: Psychological Archetype Spectrum Resonance Matrix (Common Shapes & Cognitive Geometry) -->
-        <div class="vision-module vision-archetype-module">
-          <div class="module-header-game">
-            <span class="mod-icon-laser">◈</span>
-            <div class="mod-header-text">
-              <span class="mod-title">PSYCHOLOGICAL ARCHETYPE SPECTRUM RESONANCE MATRIX</span>
-              <span class="mod-sub">12 SPECTRUM ARCHETYPES // COMMON HUMAN KEY IMAGES // SELECT ANY ARCHETYPE TO TUNE YOUR OPTICAL RESONANCE</span>
-            </div>
-            <span class="mod-arcade-tag">PSYCH-HARMONIC</span>
-          </div>
-
-          <div class="archetype-grid-12">
-            <!-- 01: 0% Red // The Fortress Shield -->
-            <button type="button" class="archetype-card" data-arch-id="shield" data-color="#ff0033" data-name="THE FORTRESS SHIELD" data-wave="700nm (0%)" data-psych="PROTECTION &amp; FOUNDATION" style="--arch-color:#ff0033; --arch-glow:rgba(255,0,51,0.5); --arch-color-light:#b30024;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">0% // 700nm</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 2 L21 6 L21 16 C21 21 15 23 12 24 C9 23 3 21 3 16 L3 6 Z"/>
-                  <circle cx="12" cy="12" r="2.5"/>
-                  <path d="M11 14 L13 14 L13.5 18 L10.5 18 Z"/>
-                </svg>
-              </div>
-              <div class="arch-title">THE FORTRESS SHIELD</div>
-              <div class="arch-meaning">PROTECTION &amp; ROOT</div>
-            </button>
-
-            <!-- 02: 9% Coral // The Lightning Spark -->
-            <button type="button" class="archetype-card" data-arch-id="spark" data-color="#ff3d00" data-name="THE LIGHTNING SPARK" data-wave="650nm (9%)" data-psych="VITALITY &amp; ACTION" style="--arch-color:#ff3d00; --arch-glow:rgba(255,61,0,0.5); --arch-color-light:#c42d00;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">9% // 650nm</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <path d="M13 2 L4 14 L11 14 L9 24 L20 10 L13 10 Z"/>
-                  <circle cx="4" cy="5" r="1"/>
-                  <circle cx="21" cy="19" r="1"/>
-                </svg>
-              </div>
-              <div class="arch-title">LIGHTNING SPARK</div>
-              <div class="arch-meaning">VITALITY &amp; DRIVE</div>
-            </button>
-
-            <!-- 03: 18% Amber // The All-Seeing Eye -->
-            <button type="button" class="archetype-card" data-arch-id="eye" data-color="#ff7700" data-name="THE ALL-SEEING EYE" data-wave="620nm (18%)" data-psych="PERCEPTION &amp; FOCUS" style="--arch-color:#ff7700; --arch-glow:rgba(255,119,0,0.5); --arch-color-light:#b85500;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">18% // 620nm</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <path d="M2 12 C6 5 18 5 22 12 C18 19 6 19 2 12 Z"/>
-                  <circle cx="12" cy="12" r="4.5"/>
-                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                  <line x1="12" y1="2" x2="12" y2="5"/>
-                  <line x1="12" y1="19" x2="12" y2="22"/>
-                </svg>
-              </div>
-              <div class="arch-title">ALL-SEEING EYE</div>
-              <div class="arch-meaning">PERCEPTION &amp; FOCUS</div>
-            </button>
-
-            <!-- 04: 27% Gold // The Sovereign Crown -->
-            <button type="button" class="archetype-card" data-arch-id="crown" data-color="#ffaa00" data-name="THE SOVEREIGN CROWN" data-wave="595nm (27%)" data-psych="MASTERY &amp; SOVEREIGNTY" style="--arch-color:#ffaa00; --arch-glow:rgba(255,170,0,0.5); --arch-color-light:#996600;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">27% // 595nm</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <path d="M3 19 L4 7 L9 12 L12 5 L15 12 L20 7 L21 19 Z"/>
-                  <line x1="3" y1="21" x2="21" y2="21"/>
-                  <circle cx="4" cy="7" r="1"/>
-                  <circle cx="12" cy="5" r="1"/>
-                  <circle cx="20" cy="7" r="1"/>
-                </svg>
-              </div>
-              <div class="arch-title">SOVEREIGN CROWN</div>
-              <div class="arch-meaning">MASTERY &amp; STANDARD</div>
-            </button>
-
-            <!-- 05: 36% Yellow // The Hex Lattice -->
-            <button type="button" class="archetype-card" data-arch-id="lattice" data-color="#ffe600" data-name="THE HEX LATTICE" data-wave="580nm (36%)" data-psych="LOGIC &amp; ARCHITECTURE" style="--arch-color:#ffe600; --arch-glow:rgba(255,230,0,0.5); --arch-color-light:#857800;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">36% // 580nm</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <polygon points="12,3 20,7.5 20,16.5 12,21 4,16.5 4,7.5"/>
-                  <line x1="12" y1="3" x2="12" y2="0"/>
-                  <line x1="20" y1="16.5" x2="23" y2="18"/>
-                  <line x1="4" y1="16.5" x2="1" y2="18"/>
-                  <circle cx="12" cy="12" r="2.5"/>
-                </svg>
-              </div>
-              <div class="arch-title">THE HEX LATTICE</div>
-              <div class="arch-meaning">SYSTEMIC LOGIC</div>
-            </button>
-
-            <!-- 06: 45% Pear // The Golden Spiral Φ -->
-            <button type="button" class="archetype-card" data-arch-id="spiral" data-color="#b4e600" data-name="THE GOLDEN SPIRAL Φ" data-wave="565nm (45%)" data-psych="DIVINE RATIO 1.618" style="--arch-color:#b4e600; --arch-glow:rgba(180,230,0,0.5); --arch-color-light:#597300;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">45% // 565nm</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 12 A1 1 0 0 1 13 13 A2 2 0 0 1 11 15 A4 4 0 0 1 7 11 A8 8 0 0 1 15 3 A13 13 0 0 1 22 16"/>
-                  <rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="2 2" stroke-opacity="0.4"/>
-                </svg>
-              </div>
-              <div class="arch-title">GOLDEN SPIRAL Φ</div>
-              <div class="arch-meaning">DIVINE RATIO 1.618</div>
-            </button>
-
-            <!-- 07: 50% Green // The Harmonic Heart [CENTER MIDPOINT] -->
-            <button type="button" class="archetype-card active" data-arch-id="heart" data-color="#00ff66" data-name="THE HARMONIC HEART" data-wave="550nm (50% CENTER)" data-psych="TRUST &amp; EQUILIBRIUM" style="--arch-color:#00ff66; --arch-glow:rgba(0,255,102,0.6); --arch-color-light:#008033;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">50% // 550nm [CENTER]</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 21 C12 21 3 14 3 8 C3 4.5 5.5 2.5 8.5 2.5 C10.5 2.5 11.5 3.5 12 4.5 C12.5 3.5 13.5 2.5 15.5 2.5 C18.5 2.5 21 4.5 21 8 C21 14 12 21 12 21 Z"/>
-                  <path d="M1 11 L6 11 L8 8 L10 14 L12 7 L14 13 L16 11 L23 11" stroke-width="1.8"/>
-                </svg>
-              </div>
-              <div class="arch-title">HARMONIC HEART</div>
-              <div class="arch-meaning">TRUST &amp; UNITED BEATS</div>
-            </button>
-
-            <!-- 08: 55% Teal // Acoustic Sine Wave -->
-            <button type="button" class="archetype-card" data-arch-id="wave" data-color="#00f0aa" data-name="ACOUSTIC SINE WAVE" data-wave="520nm (55%)" data-psych="RESONANCE &amp; HARMONIC FLOW" style="--arch-color:#00f0aa; --arch-glow:rgba(0,240,170,0.5); --arch-color-light:#008f61;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">55% // 520nm</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <path d="M2 12 Q5 4 8 12 T14 12 T20 12 T23 12"/>
-                  <circle cx="8" cy="12" r="1.5" fill="currentColor"/>
-                  <circle cx="14" cy="12" r="1.5" fill="currentColor"/>
-                  <circle cx="20" cy="12" r="1.5" fill="currentColor"/>
-                  <line x1="2" y1="18" x2="22" y2="18" stroke-dasharray="2 2" stroke-opacity="0.4"/>
-                </svg>
-              </div>
-              <div class="arch-title">SINE CARRIER</div>
-              <div class="arch-meaning">FREQUENCY &amp; FLOW</div>
-            </button>
-
-            <!-- 09: 64% Cyan // The Crypto Keyhole -->
-            <button type="button" class="archetype-card" data-arch-id="keyhole" data-color="#00e5ff" data-name="THE CRYPTO KEYHOLE" data-wave="490nm (64%)" data-psych="INSIGHT &amp; DISCLOSURE" style="--arch-color:#00e5ff; --arch-glow:rgba(0,229,255,0.5); --arch-color-light:#007a8a;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">64% // 490nm</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" stroke-dasharray="3 2"/>
-                  <circle cx="12" cy="12" r="7"/>
-                  <circle cx="12" cy="10" r="2.5" fill="currentColor"/>
-                  <polygon points="10.5,12 13.5,12 14.5,17 9.5,17" fill="currentColor"/>
-                </svg>
-              </div>
-              <div class="arch-title">CRYPTO KEYHOLE</div>
-              <div class="arch-meaning">INSIGHT &amp; VAULT</div>
-            </button>
-
-            <!-- 10: 73% Blue // The Compass Star -->
-            <button type="button" class="archetype-card" data-arch-id="compass" data-color="#0077ff" data-name="THE COMPASS STAR" data-wave="460nm (73%)" data-psych="DIRECTION &amp; TRUTH" style="--arch-color:#0077ff; --arch-glow:rgba(0,119,255,0.5); --arch-color-light:#004bb3;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">73% // 460nm</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polygon points="12,2 14,9 21,12 14,15 12,22 10,15 3,12 10,9"/>
-                  <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-                </svg>
-              </div>
-              <div class="arch-title">COMPASS STAR</div>
-              <div class="arch-meaning">DIRECTION &amp; TRUTH</div>
-            </button>
-
-            <!-- 11: 82% Indigo // The Trinity Pyramid -->
-            <button type="button" class="archetype-card" data-arch-id="pyramid" data-color="#5800ff" data-name="THE TRINITY PYRAMID" data-wave="430nm (82%)" data-psych="DEPTH &amp; ARCHITECTURAL PILLARS" style="--arch-color:#5800ff; --arch-glow:rgba(88,0,255,0.5); --arch-color-light:#3700a3;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">82% // 430nm</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <polygon points="12,2 2,20 22,20"/>
-                  <line x1="12" y1="2" x2="12" y2="20"/>
-                  <line x1="7" y1="11" x2="17" y2="11"/>
-                  <circle cx="12" cy="7" r="1.5" fill="currentColor"/>
-                </svg>
-              </div>
-              <div class="arch-title">TRINITY PYRAMID</div>
-              <div class="arch-meaning">STRUCTURAL DEPTH</div>
-            </button>
-
-            <!-- 12: 100% Magenta // The Infinity Lemniscate -->
-            <button type="button" class="archetype-card" data-arch-id="infinity" data-color="#e00099" data-name="INFINITY LEMNISCATE ∞" data-wave="400nm (100%)" data-psych="ETERNAL CONTINUUM &amp; TRANSCENDENCE" style="--arch-color:#e00099; --arch-glow:rgba(224,0,153,0.5); --arch-color-light:#8a005c;">
-              <span class="spectrum-bar bar-left" aria-hidden="true"></span>
-              <span class="spectrum-bar bar-right" aria-hidden="true"></span>
-              <div class="arch-badge">100% // 400nm</div>
-              <div class="arch-icon-box">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 12 C10 7 4 7 4 12 C4 17 10 17 12 12 C14 7 20 7 20 12 C20 17 14 17 12 12 Z"/>
-                  <circle cx="5" cy="12" r="1.2" fill="currentColor"/>
-                  <circle cx="19" cy="12" r="1.2" fill="currentColor"/>
-                </svg>
-              </div>
-              <div class="arch-title">INFINITY LOOP ∞</div>
-              <div class="arch-meaning">ETERNAL CONTINUUM</div>
-            </button>
-          </div>
-        </div>
-
-
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Scanline & Ambient Overlay -->
   <div class="terminal-scanlines"></div>
@@ -3698,7 +3368,52 @@ void main() {
   </div>
 
   <!-- Floating Harmonic Audio HUD Console -->
-  <aside id="harmonic-audio-hud" class="harmonic-audio-hud" aria-label="Harmonic Audio Controller">
+  <!-- Floating Unified HUD Console (Spectrum Controller + Harmonic Audio Engine) -->
+  <aside id="harmonic-audio-hud" class="harmonic-audio-hud unified-hud-cluster" aria-label="System Quick Controls">
+    
+    <!-- DOCK PILL 1: SPECTRUM EXPERIENCE (LIGHT / DARK) -->
+    <div class="floating-dock-unit" id="dock-spectrum-unit">
+      <div class="audio-mini-pill spectrum-float-pill" id="float-spectrum-toggle" title="Click to Expand/Collapse Spectrum Experience">
+        <div class="float-spectrum-icon" id="float-spectrum-orb">☾</div>
+        <div class="pill-info">
+          <span class="pill-title">◐ SPECTRUM</span>
+          <span class="pill-meta" id="float-spectrum-status">DARK ☾</span>
+        </div>
+        <button type="button" class="float-quick-switch" id="float-quick-switch-btn" title="Quick Toggle Light/Dark">☼</button>
+        <span class="pill-expand-arrow" id="float-spectrum-arrow">▲</span>
+      </div>
+
+      <!-- Floating Spectrum Expanded Drawer -->
+      <div class="audio-expanded-panel spectrum-float-expanded" id="float-spectrum-panel" style="display: none;">
+        <div class="audio-panel-header">
+          <div class="audio-badge">
+            <span class="audio-live-dot"></span>
+            <span>SPECTRUM // LIGHT &amp; DARK POLARITY</span>
+          </div>
+          <button type="button" class="audio-collapse-btn" id="float-spectrum-close" title="Collapse Panel">▼</button>
+        </div>
+
+        <div class="audio-title-block">
+          <h4 class="audio-h4">⚡ ⟦ CHOOSE YOUR SPECTRUM ⟧</h4>
+          <div class="audio-creator-tag">UNITEDBEATS.ONLINE // OPTICAL SYSTEM</div>
+        </div>
+
+        <div class="float-spectrum-buttons">
+          <button type="button" class="float-theme-card theme-dark-card active" id="f-btn-dark" data-theme="dark">
+            <div class="ft-card-top"><span class="ft-icon">☾</span> <strong>DARK SPECTRUM</strong></div>
+            <div class="ft-card-desc">Obsidian Phosphor • High Focus</div>
+          </button>
+          <button type="button" class="float-theme-card theme-light-card" id="f-btn-light" data-theme="light">
+            <div class="ft-card-top"><span class="ft-icon">☼</span> <strong>LIGHT SPECTRUM</strong></div>
+            <div class="ft-card-desc">Alabaster Daylight • Maximum Clarity</div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOCK PILL 2: MY LIFE SOUNDS (AUDIO CONTROLLER) -->
+    <div class="floating-dock-unit" id="dock-audio-unit">
+
     
     <!-- Mini Dock Pill (Click to toggle expansion) -->
     <div class="audio-mini-pill" id="audio-pill-toggle" title="Click to Expand/Collapse Audio Controls">
@@ -3811,6 +3526,8 @@ void main() {
         </span>
       </div>
 
+    </div>
+  
     </div>
   </aside>
   <!-- End YouTube Audio Engine -->
@@ -12452,6 +12169,569 @@ void main() {
       color: #d1fae5;
     }
 
+    
+    /* =========================================================================
+       EXPANDABLE SPECTRUM EXPERIENCE CONTROLLER (LIGHT / DARK) STYLES
+       ========================================================================= */
+    .spectrum-experience-deck {
+      max-width: 1060px;
+      margin: 18px auto 25px;
+      padding: 0 14px;
+      position: relative;
+      z-index: 10;
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Courier New', monospace;
+    }
+
+    /* 1. Top Hero Mini Pill */
+    .spectrum-hero-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: rgba(3, 15, 8, 0.88);
+      border: 1px solid rgba(0, 255, 102, 0.4);
+      border-radius: 40px;
+      padding: 10px 22px 10px 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.85), 0 0 18px rgba(0, 255, 102, 0.22);
+      backdrop-filter: blur(14px);
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .spectrum-hero-pill:hover {
+      border-color: #00ff66;
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.9), 0 0 28px rgba(0, 255, 102, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .spectrum-pill-glyph {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 255, 102, 0.12);
+      border: 1px solid #00ff66;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      color: #00ff66;
+      box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
+    }
+
+    .spectrum-pill-headings {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      line-height: 1.2;
+    }
+
+    .spectrum-kicker {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: #00ff66;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
+    }
+
+    .spectrum-current {
+      font-size: 0.72rem;
+      color: #a3ffd0;
+      letter-spacing: 0.8px;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Quick Action Pill Buttons */
+    .spectrum-pill-quick-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .spec-quick-btn {
+      background: rgba(0, 255, 102, 0.1);
+      border: 1px solid rgba(0, 255, 102, 0.35);
+      color: #a3ffd0;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      letter-spacing: 1px;
+    }
+
+    .spec-quick-btn:hover {
+      background: rgba(0, 255, 102, 0.25);
+      color: #ffffff;
+      border-color: #00ff66;
+      box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+    }
+
+    .spec-quick-btn.active {
+      background: #00ff66;
+      color: #020403;
+      border-color: #00ff66;
+      font-weight: 900;
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.7);
+    }
+
+    .spectrum-hero-arrow {
+      color: #00ff66;
+      font-size: 0.85rem;
+      transition: transform 0.25s ease;
+      margin-left: 4px;
+    }
+
+    /* 2. Top Hero Expanded Drawer */
+    .spectrum-hero-expanded {
+      background: linear-gradient(145deg, rgba(3, 16, 9, 0.96), rgba(1, 8, 4, 0.98));
+      border: 1px solid rgba(0, 255, 102, 0.5);
+      border-radius: 24px;
+      padding: 24px 28px;
+      margin-top: 14px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 255, 102, 0.25);
+      backdrop-filter: blur(18px);
+      animation: panel-slide-down 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes panel-slide-down {
+      from { opacity: 0; transform: translateY(-12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .drawer-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0, 255, 102, 0.2);
+      margin-bottom: 16px;
+    }
+
+    .drawer-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
+      color: #8ce4a7;
+      font-family: 'Courier New', monospace;
+    }
+
+    .status-pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00ff66;
+      box-shadow: 0 0 8px #00ff66;
+      animation: crtPulse 1.4s infinite;
+    }
+
+    .drawer-close-btn {
+      background: transparent;
+      border: 1px solid rgba(0, 255, 102, 0.4);
+      color: #00ff66;
+      font-size: 0.68rem;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .drawer-close-btn:hover {
+      background: rgba(0, 255, 102, 0.2);
+      border-color: #00ff66;
+      box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+    }
+
+    .drawer-hero-text {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .drawer-title {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+      color: #00ff66;
+      letter-spacing: 2px;
+      text-shadow: 0 0 12px rgba(0, 255, 102, 0.6);
+    }
+
+    .drawer-subtitle {
+      margin: 0;
+      font-size: 0.86rem;
+      color: #d1fae5;
+      line-height: 1.5;
+    }
+
+    /* 3. The Two High-Impact Spectrum Cards (Easy to Comprehend) */
+    .spectrum-choice-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .spec-card {
+      background: rgba(2, 10, 5, 0.85);
+      border: 2px solid rgba(0, 255, 102, 0.25);
+      border-radius: 16px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .spec-card:hover {
+      border-color: #00ff66;
+      box-shadow: 0 10px 30px rgba(0, 255, 102, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .spec-card.active {
+      border-color: #00ff66;
+      background: linear-gradient(145deg, rgba(0, 35, 15, 0.9), rgba(1, 14, 6, 0.95));
+      box-shadow: 0 12px 35px rgba(0, 255, 102, 0.35), inset 0 0 25px rgba(0, 255, 102, 0.15);
+    }
+
+    .spec-card.card-light.active {
+      border-color: #00e5ff;
+      box-shadow: 0 12px 35px rgba(0, 229, 255, 0.35), inset 0 0 25px rgba(0, 229, 255, 0.15);
+    }
+
+    .spec-card-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .spec-card-icon {
+      font-size: 2rem;
+      color: #00ff66;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(0, 255, 102, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 255, 102, 0.5);
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+    }
+
+    .spec-card.card-light .spec-card-icon {
+      color: #ffdd55;
+      background: rgba(255, 221, 85, 0.15);
+      border-color: rgba(255, 221, 85, 0.5);
+      box-shadow: 0 0 15px rgba(255, 221, 85, 0.4);
+    }
+
+    .spec-card-meta {
+      flex: 1;
+    }
+
+    .spec-card-name {
+      margin: 0 0 2px;
+      font-size: 1.05rem;
+      letter-spacing: 1.5px;
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .spec-card-sub {
+      font-size: 0.72rem;
+      color: #8ce4a7;
+      letter-spacing: 0.8px;
+    }
+
+    .spec-active-badge {
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      background: #00ff66;
+      color: #020403;
+      box-shadow: 0 0 10px #00ff66;
+    }
+
+    .spec-card-copy {
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: #d1fae5;
+      margin: 0 0 14px;
+    }
+
+    .spec-card-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .stat-pill {
+      font-size: 0.62rem;
+      font-family: 'Courier New', monospace;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(0, 255, 102, 0.08);
+      border: 1px solid rgba(0, 255, 102, 0.2);
+      color: #a3ffd0;
+    }
+
+    .spec-card-btn {
+      width: 100%;
+      background: rgba(0, 255, 102, 0.15);
+      border: 1px solid #00ff66;
+      color: #00ff66;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+    }
+
+    .spec-card:hover .spec-card-btn {
+      background: #00ff66;
+      color: #020403;
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.6);
+    }
+
+    .spec-card.active .spec-card-btn {
+      background: #00ff66;
+      color: #020403;
+      box-shadow: 0 0 18px rgba(0, 255, 102, 0.7);
+    }
+
+    .spec-card.card-light.active .spec-card-btn {
+      background: #00e5ff;
+      color: #020403;
+      border-color: #00e5ff;
+      box-shadow: 0 0 18px rgba(0, 229, 255, 0.7);
+    }
+
+    /* Fine Tune Footer */
+    .spec-drawer-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(0, 255, 102, 0.2);
+    }
+
+    .ft-label {
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      color: #8ce4a7;
+      font-family: 'Courier New', monospace;
+    }
+
+    .ft-button-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .ft-button-group .acuity-node-btn {
+      font-size: 0.68rem;
+      padding: 5px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 255, 102, 0.3);
+      background: rgba(0, 255, 102, 0.08);
+      color: #a3ffd0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .ft-button-group .acuity-node-btn:hover,
+    .ft-button-group .acuity-node-btn.active {
+      background: #00ff66;
+      color: #020403;
+      border-color: #00ff66;
+      font-weight: 800;
+    }
+
+    /* 4. Unified Floating Dock Cluster Styles */
+    .unified-hud-cluster {
+      display: flex;
+      gap: 12px;
+      align-items: flex-end;
+    }
+
+    .floating-dock-unit {
+      position: relative;
+    }
+
+    .float-spectrum-icon {
+      font-size: 1.1rem;
+      color: #00ff66;
+      text-shadow: 0 0 8px #00ff66;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .float-quick-switch {
+      background: rgba(0, 255, 102, 0.15);
+      border: 1px solid #00ff66;
+      color: #00ff66;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.88rem;
+      transition: all 0.2s ease;
+    }
+
+    .float-quick-switch:hover {
+      background: #00ff66;
+      color: #020403;
+      box-shadow: 0 0 10px #00ff66;
+      transform: scale(1.08);
+    }
+
+    .spectrum-float-expanded {
+      width: 320px;
+    }
+
+    .float-spectrum-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .float-theme-card {
+      background: rgba(3, 16, 9, 0.85);
+      border: 1px solid rgba(0, 255, 102, 0.3);
+      border-radius: 10px;
+      padding: 10px 14px;
+      text-align: left;
+      cursor: pointer;
+      color: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .float-theme-card:hover {
+      border-color: #00ff66;
+      background: rgba(0, 255, 102, 0.15);
+      transform: translateX(3px);
+    }
+
+    .float-theme-card.active {
+      border-color: #00ff66;
+      background: linear-gradient(135deg, rgba(0, 45, 18, 0.9), rgba(1, 20, 8, 0.95));
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.35);
+    }
+
+    .ft-card-top {
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      color: #00ff66;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-light-card .ft-card-top {
+      color: #00e5ff;
+    }
+
+    .ft-card-desc {
+      font-size: 0.68rem;
+      color: #a3ffd0;
+    }
+
+    /* =========================================================================
+       LIGHT MODE ADAPTATION FOR SPECTRUM EXPANDABLE MENUS
+       ========================================================================= */
+    body[data-theme="light"] .spectrum-hero-pill {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(0, 122, 48, 0.4);
+      box-shadow: 0 8px 30px rgba(0, 60, 20, 0.12);
+    }
+
+    body[data-theme="light"] .spectrum-kicker {
+      color: #007a30;
+      text-shadow: none;
+    }
+
+    body[data-theme="light"] .spectrum-current {
+      color: #2e5a3c;
+    }
+
+    body[data-theme="light"] .spec-quick-btn {
+      background: rgba(0, 122, 48, 0.08);
+      border-color: rgba(0, 122, 48, 0.3);
+      color: #007a30;
+    }
+
+    body[data-theme="light"] .spec-quick-btn.active {
+      background: #007a30;
+      color: #ffffff;
+      border-color: #007a30;
+      box-shadow: 0 4px 14px rgba(0, 122, 48, 0.3);
+    }
+
+    body[data-theme="light"] .spectrum-hero-expanded {
+      background: #ffffff;
+      border-color: rgba(0, 122, 48, 0.3);
+      box-shadow: 0 20px 50px rgba(0, 60, 20, 0.15);
+    }
+
+    body[data-theme="light"] .drawer-title {
+      color: #007a30;
+      text-shadow: none;
+    }
+
+    body[data-theme="light"] .drawer-subtitle {
+      color: #2b3a30;
+    }
+
+    body[data-theme="light"] .spec-card {
+      background: #f8faf9;
+      border-color: rgba(0, 122, 48, 0.25);
+    }
+
+    body[data-theme="light"] .spec-card-name {
+      color: #0a1f12;
+    }
+
+    body[data-theme="light"] .spec-card-copy {
+      color: #2b3a30;
+    }
+
+    body[data-theme="light"] .spec-card.active {
+      background: #f0f7f2;
+      border-color: #007a30;
+      box-shadow: 0 10px 25px rgba(0, 122, 48, 0.18);
+    }
+
+    body[data-theme="light"] .spec-card.active .spec-card-btn {
+      background: #007a30;
+      color: #ffffff;
+    }
+
     </style>
 
   <!-- Interactive JavaScript for Direct Uplink Form -->
@@ -15472,5 +15752,140 @@ void main() {
     // END SPECTRUM MONOPOLY GAME ENGINE
     // =========================================================================
 
-  </script>
+  
+    // =========================================================================
+    // EXPANDABLE SPECTRUM EXPERIENCE CONTROLLER LOGIC (LIGHT / DARK POLARITY)
+    // Synchronized between Top Hero Expandable Menu and Floating Dock Pill
+    // =========================================================================
+    (function initSpectrumExpander() {
+      // Top Hero Menu Elements
+      var heroToggle = document.getElementById('spectrum-hero-toggle');
+      var heroDrawer = document.getElementById('spectrum-hero-expanded');
+      var heroClose = document.getElementById('hero-drawer-close');
+      var heroArrow = document.getElementById('hero-arrow-indicator');
+      var heroBtnDark = document.getElementById('hero-btn-dark');
+      var heroBtnLight = document.getElementById('hero-btn-light');
+      var heroCurrentReadout = document.getElementById('hero-current-readout');
+      var heroGlyph = document.getElementById('hero-glyph-orb');
+      var cardDark = document.getElementById('spec-card-dark');
+      var cardLight = document.getElementById('spec-card-light');
+      var cardBtnDark = document.getElementById('card-btn-dark');
+      var cardBtnLight = document.getElementById('card-btn-light');
+      var badgeDark = document.getElementById('badge-dark-active');
+      var badgeLight = document.getElementById('badge-light-active');
+
+      // Floating Dock Elements
+      var floatToggle = document.getElementById('float-spectrum-toggle');
+      var floatDrawer = document.getElementById('float-spectrum-panel');
+      var floatClose = document.getElementById('float-spectrum-close');
+      var floatArrow = document.getElementById('float-spectrum-arrow');
+      var floatQuickSwitch = document.getElementById('float-quick-switch-btn');
+      var floatStatus = document.getElementById('float-spectrum-status');
+      var floatOrb = document.getElementById('float-spectrum-orb');
+      var fBtnDark = document.getElementById('f-btn-dark');
+      var fBtnLight = document.getElementById('f-btn-light');
+
+      // Expand / Collapse Top Hero Drawer
+      if (heroToggle && heroDrawer) {
+        heroToggle.addEventListener('click', function(e) {
+          var isExpanded = heroDrawer.style.display !== 'none';
+          heroDrawer.style.display = isExpanded ? 'none' : 'block';
+          if (heroArrow) heroArrow.textContent = isExpanded ? '▼' : '▲';
+        });
+      }
+
+      if (heroClose && heroDrawer) {
+        heroClose.addEventListener('click', function() {
+          heroDrawer.style.display = 'none';
+          if (heroArrow) heroArrow.textContent = '▼';
+        });
+      }
+
+      // Expand / Collapse Floating Drawer
+      if (floatToggle && floatDrawer) {
+        floatToggle.addEventListener('click', function(e) {
+          if (e.target === floatQuickSwitch) return;
+          var isExpanded = floatDrawer.style.display !== 'none';
+          floatDrawer.style.display = isExpanded ? 'none' : 'block';
+          if (floatArrow) floatArrow.textContent = isExpanded ? '▲' : '▼';
+        });
+      }
+
+      if (floatClose && floatDrawer) {
+        floatClose.addEventListener('click', function() {
+          floatDrawer.style.display = 'none';
+          if (floatArrow) floatArrow.textContent = '▲';
+        });
+      }
+
+      // Master Synchronized Switcher
+      function switchSpectrumTheme(theme) {
+        if (typeof applyTheme === 'function') {
+          applyTheme(theme);
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+          document.body.setAttribute('data-theme', theme);
+        }
+
+        var isDark = (theme === 'dark');
+
+        // Update Top Hero UI
+        if (heroGlyph) heroGlyph.textContent = isDark ? '☾' : '☼';
+        if (heroCurrentReadout) {
+          heroCurrentReadout.textContent = isDark ? 'CURRENT: DARK SPECTRUM [OBSIDIAN CYBER]' : 'CURRENT: LIGHT SPECTRUM [OPTICAL ALABASTER]';
+        }
+        if (heroBtnDark) {
+          if (isDark) heroBtnDark.classList.add('active'); else heroBtnDark.classList.remove('active');
+        }
+        if (heroBtnLight) {
+          if (!isDark) heroBtnLight.classList.add('active'); else heroBtnLight.classList.remove('active');
+        }
+        if (cardDark) {
+          if (isDark) cardDark.classList.add('active'); else cardDark.classList.remove('active');
+        }
+        if (cardLight) {
+          if (!isDark) cardLight.classList.add('active'); else cardLight.classList.remove('active');
+        }
+        if (badgeDark) badgeDark.style.display = isDark ? 'inline-block' : 'none';
+        if (badgeLight) badgeLight.style.display = !isDark ? 'inline-block' : 'none';
+        if (cardBtnDark) cardBtnDark.textContent = isDark ? '✓ SELECTED (DARK)' : 'ACTIVATE DARK SPECTRUM';
+        if (cardBtnLight) cardBtnLight.textContent = !isDark ? '✓ SELECTED (LIGHT)' : 'ACTIVATE LIGHT SPECTRUM';
+
+        // Update Floating Dock UI
+        if (floatOrb) floatOrb.textContent = isDark ? '☾' : '☼';
+        if (floatStatus) floatStatus.textContent = isDark ? 'DARK ☾' : 'LIGHT ☼';
+        if (floatQuickSwitch) floatQuickSwitch.textContent = isDark ? '☼' : '☾';
+        if (fBtnDark) {
+          if (isDark) fBtnDark.classList.add('active'); else fBtnDark.classList.remove('active');
+        }
+        if (fBtnLight) {
+          if (!isDark) fBtnLight.classList.add('active'); else fBtnLight.classList.remove('active');
+        }
+      }
+
+      // Attach Click Handlers to All Polarity Triggers
+      if (heroBtnDark) heroBtnDark.addEventListener('click', function() { switchSpectrumTheme('dark'); });
+      if (heroBtnLight) heroBtnLight.addEventListener('click', function() { switchSpectrumTheme('light'); });
+      if (cardDark) cardDark.addEventListener('click', function() { switchSpectrumTheme('dark'); });
+      if (cardLight) cardLight.addEventListener('click', function() { switchSpectrumTheme('light'); });
+      if (cardBtnDark) cardBtnDark.addEventListener('click', function(e) { e.stopPropagation(); switchSpectrumTheme('dark'); });
+      if (cardBtnLight) cardBtnLight.addEventListener('click', function(e) { e.stopPropagation(); switchSpectrumTheme('light'); });
+
+      if (floatQuickSwitch) {
+        floatQuickSwitch.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var current = document.documentElement.getAttribute('data-theme') || 'dark';
+          switchSpectrumTheme(current === 'dark' ? 'light' : 'dark');
+        });
+      }
+
+      if (fBtnDark) fBtnDark.addEventListener('click', function() { switchSpectrumTheme('dark'); });
+      if (fBtnLight) fBtnLight.addEventListener('click', function() { switchSpectrumTheme('light'); });
+
+      // Initialize with active theme
+      var activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      switchSpectrumTheme(activeTheme);
+    })();
+
+    </script>
 </div>

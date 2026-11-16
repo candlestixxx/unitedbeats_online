@@ -1,8 +1,10 @@
 import os
 import re
 
-# Read styles, ASCII header, and footer from homepage.html
-with open('deploy/homepage.html', 'r', encoding='utf-8') as f:
+base_dir = os.path.dirname(__file__)
+home_path = os.path.join(base_dir, 'homepage.html')
+
+with open(home_path, 'r', encoding='utf-8') as f:
     home = f.read()
 
 # Extract <style>...</style> block
@@ -14,11 +16,11 @@ script_match = re.search(r'(<script>[\s\S]*?</script>)', home)
 scripts = script_match.group(1) if script_match else ''
 
 # Extract ASCII Header
-header_match = re.search(r'(<header class="ascii-hero">[\s\S]*?</header>)', home)
+header_match = re.search(r'(<header class="ascii-hero[^>]*>[\s\S]*?</header>)', home)
 ascii_header = header_match.group(1) if header_match else ''
 
 # Extract Top Pillars Navigation Rail
-pillars_match = re.search(r'(<nav class="solid-line-pillars" id="top-pillars-rail"[\s\S]*?</nav>)', home)
+pillars_match = re.search(r'(<nav class="pillars-solid-rail[^>]*" id="top-pillars-rail"[\s\S]*?</nav>)', home)
 top_pillars_rail = pillars_match.group(1) if pillars_match else ''
 
 # Extract Sub-Dock
@@ -61,6 +63,8 @@ def build_page(page_title, active_slug, main_content_html):
       <a href="/private/" class="hud-link {'active' if active_slug=='private' else ''}">PRIVATE</a>
       <span class="hud-sep">|</span>
       <a href="/posts/" class="hud-link {'active' if active_slug=='posts' else ''}">LIVE POSTS</a>
+      <span class="hud-sep">|</span>
+      <a href="/games/" class="hud-link {'active' if active_slug=='games' else ''}">COOL CONCEPT GAMES</a>
     </div>
   </div>
 
@@ -96,18 +100,18 @@ def build_page(page_title, active_slug, main_content_html):
 
 # 1. Generate deploy/posts.html
 posts_page = build_page("LIVE POSTS // TRANSMISSION DIARY & REAL-TIME COMMENTS", "posts", posts_sec)
-with open('deploy/posts.html', 'w', encoding='utf-8') as f:
+with open(os.path.join(base_dir, 'posts.html'), 'w', encoding='utf-8') as f:
     f.write(posts_page)
 print("Generated deploy/posts.html")
 
 # 2. Generate deploy/public.html
 public_page = build_page("PUBLIC SECTOR // OPEN ARCHIVES & ROTATING PROJECTS", "public", public_sec)
-with open('deploy/public.html', 'w', encoding='utf-8') as f:
+with open(os.path.join(base_dir, 'public.html'), 'w', encoding='utf-8') as f:
     f.write(public_page)
 print("Generated deploy/public.html")
 
 # 3. Generate deploy/private.html
 private_page = build_page("PRIVATE SECTOR // CLASSIFIED CIPHER VAULT", "private", private_sec)
-with open('deploy/private.html', 'w', encoding='utf-8') as f:
+with open(os.path.join(base_dir, 'private.html'), 'w', encoding='utf-8') as f:
     f.write(private_page)
 print("Generated deploy/private.html")

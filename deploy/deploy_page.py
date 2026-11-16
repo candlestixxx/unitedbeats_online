@@ -59,6 +59,9 @@ private_id = deploy_single_page('private', 'UNITED BEATS // PRIVATE SECTOR // CL
 # 4. Live Posts Diary Page
 posts_id = deploy_single_page('posts', 'UNITED BEATS // LIVE POSTS // TRANSMISSION DIARY', 'posts.html')
 
+# 5. Cool Concept Games Arcade Page
+games_id = deploy_single_page('games', 'UNITED BEATS // COOL CONCEPT GAMES // PROCEDURAL SHADERTOY & SPECTRUM MONOPOLY', 'games.html')
+
 # Configure static front page
 subprocess.run(['sudo', '-u', 'www-data', 'wp', f'--path={wp_path}', 'option', 'update', 'show_on_front', 'page'], check=True)
 subprocess.run(['sudo', '-u', 'www-data', 'wp', f'--path={wp_path}', 'option', 'update', 'page_on_front', front_id], check=True)

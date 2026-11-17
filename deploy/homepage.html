@@ -2484,6 +2484,7 @@
       &copy; 2026 United Beats LLC &amp; Lumbros Kourlos. All Rights Reserved. Systems Operational.
     </div>
   </footer>
+</div>
 
   <!-- YouTube Audio Engine -->
   <!-- Invisible Audio Host Frame (Playlist: PLM2VfNfvggIE // 60 Tracks) -->
@@ -13014,6 +13015,16 @@
     // Calibrated to 52 dB SPL (Optimal Human Algorithm Trust Resonance)
     // =========================================================================
     (function() {
+      // Ensure floating HUD is mounted directly to document.body so CSS container filters don't trap position: fixed
+      try {
+        var hudEl = document.getElementById('harmonic-audio-hud');
+        if (hudEl && hudEl.parentElement !== document.body) {
+          document.body.appendChild(hudEl);
+        }
+      } catch (e) {
+        console.warn('HUD reparenting error:', e);
+      }
+
       var playlistId = 'PLM2VfNfvggIE';
       var videoIds = [
         'XrzYb1vXYJM', 'SVWHm3mYbn0', 'jvp--EFPnIA', 'lG2YIZHz-aw', 'NtCTBGeKnkE', 
